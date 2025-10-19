@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"strings"
 
 	"github.com/BMokarzel/stress-test/pkg/logger"
 	"github.com/BMokarzel/stress-test/pkg/test"
@@ -22,10 +23,10 @@ func main() {
 
 	flag.Parse()
 
-	//if !strings.HasPrefix(*url, "http://") {
-	//	u := fmt.Sprintf("http://" + *url)
-	//	url = &u
-	//}
+	if !strings.HasPrefix(*url, "http://") {
+		u := fmt.Sprintf("http://" + *url)
+		url = &u
+	}
 
 	clientTest, err := test.New(logger, *url)
 	if err != nil {
