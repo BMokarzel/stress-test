@@ -1,0 +1,14 @@
+# Comando para buildar o programa
+
+docker build -t stress-test:latest .
+
+# Comando para rodar o programa:
+
+docker run --rm `
+  -v "C:\Users\User\Desktop\stress-test\logs:/logs" `
+  stress-test:latest `
+  --url=www.google.com `
+  --requests=10 `
+  --concurrency=2
+
+# A linha com prefixo -v é usada para que os arquivos de logs criados durante a execução possam ser salvos na sua máquina. Aponte sempre para a pata /logs dentro da pasta raiz do projeto.
